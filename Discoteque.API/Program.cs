@@ -13,6 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add applications insigths
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:ConnectionString"]);
+
 builder.Services.AddDbContext<DiscotequeContext>(
     opt => {
         opt.UseInMemoryDatabase("Discoteque");
